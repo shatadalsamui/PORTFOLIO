@@ -1,5 +1,4 @@
 "use client";
-import { Blog } from "@/types/blog";
 import Image from "next/image";
 import React, { useState } from "react";
 import { Heading } from "./Heading";
@@ -7,7 +6,7 @@ import { Paragraph } from "./Paragraph";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 
-export const Blogs = ({ blogs }: { blogs: Blog[] }) => {
+export const Blogs = ({ blogs }: { blogs: any[] }) => {
   const [hovered, setHovered] = useState<string | null>(null);
   return (
     <div className="max-w-5xl mx-auto my-10">
@@ -71,7 +70,7 @@ export const Blogs = ({ blogs }: { blogs: Blog[] }) => {
                   {blog.description}
                 </Paragraph>
                 <div className="flex space-x-2 flex-wrap mt-4">
-                  {blog.tags?.map((tag, index) => (
+                  {blog.tags?.map((tag: string, index: number) => (
                     <span
                       key={`tag-${blog.slug}`}
                       className="text-xs px-1 py-0.5 text-secondary border border-neutral-200 bg-white rounded-md"
